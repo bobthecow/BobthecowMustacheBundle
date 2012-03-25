@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns="http://justinhileman.info/schema/dic/mustache"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://justinhileman.info/schema/dic/mustache"
+    elementFormDefault="qualified">
+
+    <xsd:element name="config" type="config" />
+
+    <xsd:complexType name="config">
+        <xsd:sequence>
+            <xsd:element name="global" type="global" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+
+        <xsd:attribute name="template-class-prefix" type="xsd:string" />
+        <xsd:attribute name="template-base-class" type="xsd:string" />
+        <xsd:attribute name="cache" type="xsd:string" />
+        <xsd:attribute name="loader" type="xsd:string" />
+        <xsd:attribute name="partials-loader" type="xsd:string" />
+        <xsd:attribute name="charset" type="xsd:string" />
+    </xsd:complexType>
+
+    <xsd:complexType name="global" mixed="true">
+        <xsd:attribute name="key" type="xsd:string" use="required" />
+        <xsd:attribute name="type" type="global_type" />
+        <xsd:attribute name="id" type="xsd:string" />
+    </xsd:complexType>
+
+    <xsd:simpleType name="global_type">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="service" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

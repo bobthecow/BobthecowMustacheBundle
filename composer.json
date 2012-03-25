@@ -1,0 +1,21 @@
+{
+    "name": "bobthecow/mustache-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Mustache.php Bundle",
+    "keywords": ["templating", "mustache"],
+    "homepage": "http://github.com/bobthecow/BobthecowMustacheBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Justin Hileman",
+            "email": "justin@justinhileman.info"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Bobthecow\\Bundle\\BobthecowMustacheBundle": "" }
+    },
+    "target-dir": "Bobthecow/Bundle/BobthecowMustacheBundle"
+}

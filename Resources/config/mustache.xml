@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="mustache.class">Mustache_Mustache</parameter>
+        <parameter key="mustache.loader.class">Bobthecow\Bundle\BobthecowMustacheBundle\Loader\FilesystemLoader</parameter>
+        <parameter key="templating.engine.mustache.class">Bobthecow\Bundle\BobthecowMustacheBundle\MustacheEngine</parameter>
+        <parameter key="mustache.cache_warmer.class">Bobthecow\Bundle\BobthecowMustacheBundle\CacheWarmer\TemplateCacheCacheWarmer</parameter>
+    </parameters>
+
+    <services>
+        <service id="mustache" class="%mustache.class%">
+            <argument>%mustache.options%</argument>
+        </service>
+
+        <service id="mustache.cache_warmer" class="%mustache.cache_warmer.class%" public="false">
+            <tag name="kernel.cache_warmer" />
+            <argument type="service" id="service_container" />
+            <argument type="service" id="templating.finder" />
+        </service>
+
+        <service id="mustache.loader" class="%mustache.loader.class%">
+            <argument type="service" id="templating.locator" />
+            <argument type="service" id="templating.name_parser" />
+        </service>
+
+        <service id="templating.engine.mustache" class="%templating.engine.mustache.class%" public="false">
+            <argument type="service" id="mustache" />
+            <argument type="service" id="templating.name_parser" />
+            <argument type="service" id="templating.globals" />
+        </service>
+    </services>
+</container>
