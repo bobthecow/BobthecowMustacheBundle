@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle\CacheWarmer;
+namespace Bobthecow\Bundle\MustacheBundle\CacheWarmer;
 
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;

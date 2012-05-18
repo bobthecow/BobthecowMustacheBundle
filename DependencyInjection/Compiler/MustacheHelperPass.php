@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle\DependencyInjection\Compiler;
+namespace Bobthecow\Bundle\MustacheBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

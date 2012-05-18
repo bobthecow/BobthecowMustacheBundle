@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle;
+namespace Bobthecow\Bundle\MustacheBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Bobthecow\Bundle\BobthecowMustacheBundle\DependencyInjection\Compiler\MustacheHelperPass;
+use Bobthecow\Bundle\MustacheBundle\DependencyInjection\Compiler\MustacheHelperPass;
 
 class BobthecowMustacheBundle extends Bundle
 {

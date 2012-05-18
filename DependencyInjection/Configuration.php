@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle\DependencyInjection;
+namespace Bobthecow\Bundle\MustacheBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -29,6 +29,9 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mustache');
+
+        $rootNode
+            ->setInfo('Mustache Configuration');
 
         $this->addGlobalsSection($rootNode);
         $this->addMustacheOptions($rootNode);
@@ -85,8 +88,8 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('template_class_prefix')->setExample('__Mustache_')->end()
                 ->scalarNode('template_base_class')->setExample('Mustache_Template')->end()
                 ->scalarNode('cache')->defaultValue('%kernel.cache_dir%/mustache')->end()
-                ->scalarNode('loader')->defaultValue('mustache.loader')->end()
-                ->scalarNode('partials_loader')->defaultValue('mustache.loader')->end()
+                ->scalarNode('loader_id')->defaultValue('mustache.loader')->end()
+                ->scalarNode('partials_loader_id')->defaultValue('mustache.loader')->end()
                 ->scalarNode('charset')->defaultValue('%kernel.charset%')->end()
             ->end()
         ;

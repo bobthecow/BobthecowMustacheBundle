@@ -1,14 +1,15 @@
 {
     "name": "bobthecow/mustache-bundle",
-    "type": "symfony-bundle",
     "description": "Symfony Mustache.php Bundle",
     "keywords": ["templating", "mustache"],
     "homepage": "http://github.com/bobthecow/BobthecowMustacheBundle",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Justin Hileman",
-            "email": "justin@justinhileman.info"
+            "email": "justin@justinhileman.info",
+            "homepage": "http://justinhileman.com"
         }
     ],
     "require": {

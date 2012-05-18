@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle\DependencyInjection;
+namespace Bobthecow\Bundle\MustacheBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * MustacheExtension.
  */
-class MustacheExtension extends Extension
+class BobthecowMustacheExtension extends Extension
 {
     /**
      * Responds to the mustache configuration parameter.
@@ -49,17 +49,21 @@ class MustacheExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        if (isset($config['loader'])) {
-            $config['loader'] = new Reference($config['loader']);
-        } else {
-            $config['loader'] = $container->getDefinition('mustache.loader');
-        }
+        $def = $container->getDefinition('mustache');
 
-        if (isset($config['partials_loader'])) {
-            $config['partials_loader'] = new Reference($config['partials_loader']);
+        if (isset($config['loader_id'])) {
+            $loader = new Reference($config['loader_id']);
         } else {
-            $config['partials_loader'] = $config['loader'];
+            $loader = new Reference('mustache.loader');
         }
+        $def->addMethodCall('setLoader', array($loader));
+
+        if (isset($config['partials_loader_id'])) {
+            $partialsLoader = new Reference($config['partials_loader_id']);
+        } else {
+            $partialsLoader = $loader;
+        }
+        $def->addMethodCall('setPartialsLoader', array($partialsLoader));
 
         if (!empty($config['globals'])) {
             $def = $container->getDefinition('mustache');
@@ -71,9 +75,7 @@ class MustacheExtension extends Extension
                 }
             }
         }
-
-        unset($config['globals']);
-
+        unset($config['globals'], $config['loader_id'], $config['partials_loader_id']);
         $container->setParameter('mustache.options', $config);
 
         $this->addClassesToCompile(array(
@@ -81,7 +83,7 @@ class MustacheExtension extends Extension
             'Mustache_HelperCollection',
             'Mustache_Loader',
             'Mustache_Loader_FilesystemLoader',
-            'Mustache_Mustache',
+            'Mustache_Engine',
             'Mustache_Template',
         ));
     }

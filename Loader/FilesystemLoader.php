@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle\Loader;
+namespace Bobthecow\Bundle\MustacheBundle\Loader;
 
 use Symfony\Component\Templating\TemplateNameParserInterface;
 use Symfony\Component\Config\FileLocatorInterface;
@@ -31,8 +31,6 @@ class FilesystemLoader extends \Mustache_Loader_FilesystemLoader
      */
     public function __construct(FileLocatorInterface $locator, TemplateNameParserInterface $parser)
     {
-        parent::__construct(array());
-
         $this->locator = $locator;
         $this->parser = $parser;
         $this->cache = array();
@@ -53,7 +51,7 @@ class FilesystemLoader extends \Mustache_Loader_FilesystemLoader
             $template = $this->parser->parse($name);
             $file = $this->locator->locate($template);
         } catch (\Exception $e) {
-            throw new InvalidArgumentException(sprintf('Unable to find template "%s".', $name));
+            throw new \InvalidArgumentException(sprintf('Unable to find template "%s".', $name));
         }
 
         return $file;

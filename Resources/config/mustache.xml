@@ -5,10 +5,10 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="mustache.class">Mustache_Mustache</parameter>
-        <parameter key="mustache.loader.class">Bobthecow\Bundle\BobthecowMustacheBundle\Loader\FilesystemLoader</parameter>
-        <parameter key="templating.engine.mustache.class">Bobthecow\Bundle\BobthecowMustacheBundle\MustacheEngine</parameter>
-        <parameter key="mustache.cache_warmer.class">Bobthecow\Bundle\BobthecowMustacheBundle\CacheWarmer\TemplateCacheCacheWarmer</parameter>
+        <parameter key="mustache.class">Mustache_Engine</parameter>
+        <parameter key="mustache.loader.class">Bobthecow\Bundle\MustacheBundle\Loader\FilesystemLoader</parameter>
+        <parameter key="templating.engine.mustache.class">Bobthecow\Bundle\MustacheBundle\MustacheEngine</parameter>
+        <parameter key="mustache.cache_warmer.class">Bobthecow\Bundle\MustacheBundle\CacheWarmer\TemplateCacheCacheWarmer</parameter>
     </parameters>
 
     <services>

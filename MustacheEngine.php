@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Bobthecow\Bundle\BobthecowMustacheBundle;
+namespace Bobthecow\Bundle\MustacheBundle;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\GlobalVariables;
@@ -27,17 +27,13 @@ class MustacheEngine implements EngineInterface
     /**
      * Constructor.
      *
-     * @param Mustache_Mustache           $mustache A \Mustache_Mustache instance
+     * @param Mustache_Engine             $mustache A \Mustache_Engine instance
      * @param TemplateNameParserInterface $parser   A TemplateNameParserInterface instance
      */
-    public function __construct(\Mustache_Mustache $mustache, TemplateNameParserInterface $parser)
+    public function __construct(\Mustache_Engine $mustache, TemplateNameParserInterface $parser)
     {
         $this->mustache = $mustache;
         $this->parser   = $parser;
-
-        if (null !== $globals) {
-            $mustache->addHelper('app', $globals);
-        }
     }
 
     /**
