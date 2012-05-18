@@ -9,6 +9,7 @@
         <parameter key="mustache.loader.class">Bobthecow\Bundle\MustacheBundle\Loader\FilesystemLoader</parameter>
         <parameter key="templating.engine.mustache.class">Bobthecow\Bundle\MustacheBundle\MustacheEngine</parameter>
         <parameter key="mustache.cache_warmer.class">Bobthecow\Bundle\MustacheBundle\CacheWarmer\TemplateCacheCacheWarmer</parameter>
+        <parameter key="assetic.mustache_formula_loader.class">Bobthecow\Bundle\MustacheBundle\Assetic\FakeFormulaLoader</parameter>
     </parameters>
 
     <services>
@@ -31,6 +32,11 @@
             <argument type="service" id="mustache" />
             <argument type="service" id="templating.name_parser" />
             <argument type="service" id="templating.globals" />
+        </service>
+
+        <service id="assetic.mustache_formula_loader" class="%assetic.mustache_formula_loader.class%" public="false">
+            <tag name="assetic.formula_loader" alias="mustache" />
+            <tag name="assetic.templating.mustache" />
         </service>
     </services>
 </container>
