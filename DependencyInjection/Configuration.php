@@ -30,8 +30,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mustache');
 
-        $rootNode
-            ->setInfo('Mustache Configuration');
+        //$rootNode->setInfo('Mustache Configuration');
 
         $this->addGlobalsSection($rootNode);
         $this->addMustacheOptions($rootNode);
