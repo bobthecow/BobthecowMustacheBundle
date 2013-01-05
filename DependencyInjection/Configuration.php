@@ -30,7 +30,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mustache');
 
-        //$rootNode->setInfo('Mustache Configuration');
+        // $rootNode->setInfo('Mustache Configuration');
 
         $this->addGlobalsSection($rootNode);
         $this->addMustacheOptions($rootNode);
@@ -45,7 +45,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('globals')
                     ->useAttributeAsKey('key')
-                    ->setExample(array('foo' => '"@bar"', 'pi' => 3.14))
+                    ->example(array('foo' => '"@bar"', 'pi' => 3.14)) 
                     ->prototype('array')
                         ->beforeNormalization()
                             ->ifTrue(function($v){ return is_string($v) && 0 === strpos($v, '@'); })
@@ -84,8 +84,8 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
-                ->scalarNode('template_class_prefix')->setExample('__Mustache_')->end()
-                ->scalarNode('template_base_class')->setExample('Mustache_Template')->end()
+                ->scalarNode('template_class_prefix')->example('__Mustache_')->end()
+                ->scalarNode('template_base_class')->example('Mustache_Template')->end()
                 ->scalarNode('cache')->defaultValue('%kernel.cache_dir%/mustache')->end()
                 ->scalarNode('loader_id')->defaultValue('mustache.loader')->end()
                 ->scalarNode('partials_loader_id')->defaultValue('mustache.loader')->end()
