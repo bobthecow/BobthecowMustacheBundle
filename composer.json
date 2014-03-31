@@ -1,7 +1,7 @@
 {
     "name": "bobthecow/mustache-bundle",
     "description": "Symfony Mustache.php Bundle",
-    "keywords": ["templating", "mustache"],
+    "keywords": ["templating", "mustache", "symfony", "symfony2", "sf2"],
     "homepage": "http://github.com/bobthecow/BobthecowMustacheBundle",
     "type": "symfony-bundle",
     "license": "MIT",
@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=5.3.2",
+        "mustache/mustache": "~2.5"
     },
     "autoload": {
         "psr-0": { "Bobthecow\\Bundle\\BobthecowMustacheBundle": "" }
