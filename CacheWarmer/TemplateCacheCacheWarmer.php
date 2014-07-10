@@ -57,7 +57,7 @@ class TemplateCacheCacheWarmer implements CacheWarmerInterface
             }
 
             try {
-                $mustache->loadTemplate($mustache);
+                $mustache->loadTemplate((string) $template);
             } catch (\Exception $e) {
                 // problem during compilation, give up
             }
