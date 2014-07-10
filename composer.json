@@ -17,7 +17,7 @@
         "mustache/mustache": "~2.5"
     },
     "autoload": {
-        "psr-0": { "Bobthecow\\Bundle\\BobthecowMustacheBundle": "" }
+        "psr-0": { "Bobthecow\\Bundle\\MustacheBundle": "" }
     },
-    "target-dir": "Bobthecow/Bundle/BobthecowMustacheBundle"
+    "target-dir": "Bobthecow/Bundle/MustacheBundle"
 }
