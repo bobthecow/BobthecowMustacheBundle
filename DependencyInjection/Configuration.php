@@ -45,7 +45,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('globals')
                     ->useAttributeAsKey('key')
-                    ->example(array('foo' => '"@bar"', 'pi' => 3.14)) 
+                    ->example(array('foo' => '"@bar"', 'pi' => 3.14))
                     ->prototype('array')
                         ->beforeNormalization()
                             ->ifTrue(function ($v) { return is_string($v) && 0 === strpos($v, '@'); })
