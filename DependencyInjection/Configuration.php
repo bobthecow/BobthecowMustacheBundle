@@ -45,14 +45,14 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('globals')
                     ->useAttributeAsKey('key')
-                    ->example(array('foo' => '"@bar"', 'pi' => 3.14)) 
+                    ->example(array('foo' => '"@bar"', 'pi' => 3.14))
                     ->prototype('array')
                         ->beforeNormalization()
-                            ->ifTrue(function($v){ return is_string($v) && 0 === strpos($v, '@'); })
-                            ->then(function($v){ return array('id' => substr($v, 1), 'type' => 'service'); })
+                            ->ifTrue(function ($v) { return is_string($v) && 0 === strpos($v, '@'); })
+                            ->then(function ($v) { return array('id' => substr($v, 1), 'type' => 'service'); })
                         ->end()
                         ->beforeNormalization()
-                            ->ifTrue(function($v){
+                            ->ifTrue(function ($v) {
                                 if (is_array($v)) {
                                     $keys = array_keys($v);
                                     sort($keys);
@@ -62,7 +62,7 @@ class Configuration implements ConfigurationInterface
 
                                 return true;
                             })
-                            ->then(function($v){ return array('value' => $v); })
+                            ->then(function ($v) { return array('value' => $v); })
                         ->end()
                         ->children()
                             ->scalarNode('id')->end()
