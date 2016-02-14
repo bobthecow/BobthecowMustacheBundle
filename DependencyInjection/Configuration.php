@@ -90,6 +90,9 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('loader_id')->defaultValue('mustache.loader')->end()
                 ->scalarNode('partials_loader_id')->defaultValue('mustache.loader')->end()
                 ->scalarNode('charset')->defaultValue('%kernel.charset%')->end()
+                ->arrayNode('pragmas')
+                    ->prototype('scalar')->end()
+                ->end()
             ->end()
         ;
     }
