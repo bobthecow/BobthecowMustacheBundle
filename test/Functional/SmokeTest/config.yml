@@ -1,0 +1,6 @@
+parameters:
+    kernel.secret: foo
+
+framework:
+    templating:
+        engines: ['mustache']
