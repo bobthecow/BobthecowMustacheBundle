@@ -31,7 +31,6 @@
         <service id="templating.engine.mustache" class="%templating.engine.mustache.class%" public="false">
             <argument type="service" id="mustache" />
             <argument type="service" id="templating.name_parser" />
-            <argument type="service" id="templating.globals" />
         </service>
 
         <service id="assetic.mustache_formula_loader" class="%assetic.mustache_formula_loader.class%" public="false">
