@@ -13,8 +13,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2",
-        "mustache/mustache": "~2.5"
+        "php": "^5.3.2 || ^7.0",
+        "mustache/mustache": "^2.5"
     },
     "autoload": {
         "psr-4": { "Bobthecow\\Bundle\\MustacheBundle\\": "src" }
